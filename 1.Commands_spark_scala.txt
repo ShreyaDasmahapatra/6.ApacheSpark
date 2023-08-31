@@ -1,0 +1,45 @@
+>>spark-shell
+
+scala> var a= sc.textFile("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/words.txt").flatMap (line => line.split(" ")).map(word => (word,1));
+
+
+var a = variable declaration and is mutable
+or
+val a = variable declaration and is immutable
+sc = is like a main that create anad initialized s spark context object
+textFile("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/words.txt") = reading file in the given path
+flatMap = splits the string on basis of delimeter..ex: Shreya..S,h,r,e,y,a.Here this will get split on " "(delimeter is space)
+map(word => (word,1)) = it takes the word from the above operation and hard code it as 1.
+
+//hi,1
+//welcome, 1
+//to,1
+//my,1
+//channel, 1
+//channel, 1
+//atozknowledge, 1
+
+
+
+/** reduce */
+scala>>var b =a.reduceByKey(_+_);
+
+it collects the word from the string and the hardcoded value goes on adding if there are duplicates
+
+//atozknowledge, 1
+//channel (1,1) => 2
+//hi, 1
+//my, 1
+//to, 1
+//welome ,1
+
+
+scala>>b.collect
+
+
+
+
+
+
+scala>> val df = spark.read.json("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/people.json")
+scala>>df.filter("age>21").select("name","age").show()

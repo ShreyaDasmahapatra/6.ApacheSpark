@@ -1,0 +1,32 @@
+In the shell  type pyspark
+But this won't work as python version in pyspark is different than python in the system.
+
+words = sc.textFile("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/words2.txt").flatMap (lambda line: line.split(" "))
+
+a=words.map(lambda word:(word, 1))
+
+hi 1
+hello 1
+hi 1
+hello 1
+welcome 1
+welccome 1
+
+
+
+
+b=a. reduceByKey (lambda a, b:a +b)
+
+hi [1,1] = > hi 2
+hello [1,1] => hello 2
+
+
+b.collect()
+
+
+
+
+
+>>>df = spark.read.json("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/people.json")
+
+>>>df.filter("age>21").select("name","age").show()

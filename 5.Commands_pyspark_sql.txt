@@ -1,0 +1,6 @@
+scala>>df = spark.read.json("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/people.json")
+scala>>df.createOrReplaceTempView("people")
+scala>>spark.sql("SELECT * FROM people where age>21").show()
+
+upgrade externalip address to staticip
+create firewall rue to open tcp port 8888

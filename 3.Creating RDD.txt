@@ -1,0 +1,15 @@
+Ways to create RDDS in Apache Spark www.youtube.com/atozknowledgevideos
+
+Parallelized collection.
+val rdd1 = spark.sparkContext.parallelize(Array("jan","feb", "mar","april","nay","jun"));
+rdd1.collect
+
+External Datasets
+val rdd2=spark.read. textFile("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/words.txt");
+rdd2.collect
+
+Creating ROD from existing RDD
+val rdd3=spark.read.textFile("C:/Users/ASUS/Desktop/Data Engineering/7.Batch Processing - PySpark/words.txt")
+val splitdata =rdd3.flatMap(line =>line.split(""));
+val mapdata = splitdata.map(word =>(word,1));
+mapdata.collect
